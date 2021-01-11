@@ -11,8 +11,8 @@ namespace myHomeIoT
         class MHIOT_WiFi: public myHomeIoT::AppComponent
         {
         private:
-            const char *ssid = "Residentie Wijckmans";
-            const char *password = "wIJCK965061";
+            const char *ssid = "SSID";
+            const char *password = "PWD";
         public:
             MHIOT_WiFi();
             ~MHIOT_WiFi();
