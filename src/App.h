@@ -9,15 +9,18 @@
 #include "wireless/MHIOT_WiFi.h"
 #include "web/MHIOT_WebServer.h"
 #include "led/MHIOT_Led.h"
+#include "mqtt/MHIOT_MQTT.h"
+#include "config/MHIOT_Config.h"
 
 namespace myHomeIoT
 {
-    class App: public myHomeIoT::AppComponent
+    class App: public AppComponent
     {
     private:
-        myHomeIoT::Storage::MHIOT_NVS nvsStorage;
-        myHomeIoT::Wireless::MHIOT_WiFi wifi;
-        myHomeIoT::Web::MHIOT_WebServer webServer;
+        Storage::MHIOT_NVS nvsStorage;
+        Wireless::MHIOT_WiFi wifi;
+        Web::MHIOT_WebServer webServer;
+        MQTT::MHIOT_MQTT mqttClient;
         const uint16_t pwmFrequency{5000};
         const uint8_t pwmResolution{8};
         const uint8_t pinWhite{12};

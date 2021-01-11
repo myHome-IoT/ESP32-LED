@@ -6,7 +6,9 @@
 #include <nvs_flash.h>
 #include <stdint.h>
 #include <HardwareSerial.h>
+#include <Esp.h>
 #include "led/MHIOT_Led.h"
+#include "config/MHIOT_Config.h"
 
 namespace myHomeIoT
 {
@@ -14,15 +16,14 @@ namespace myHomeIoT
     {
         class MHIOT_NVS: public AppComponent
         {
-            private:
-                
             public:
                 MHIOT_NVS();
                 ~MHIOT_NVS();
 
                 bool setup();
                 void loop();
-                static bool set(const char *key, uint8_t value);
+                static bool set(const char *kvName, const char *key, uint8_t value);
+                static bool saveConfig();
         };
     }
 }

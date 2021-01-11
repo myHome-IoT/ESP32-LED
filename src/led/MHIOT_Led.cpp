@@ -2,7 +2,8 @@
 
 using namespace myHomeIoT::LED;
 
-MHIOT_Led* MHIOT_Led::m_pInstance = 0;
+bool MHIOT_Led::instanceFlag = false;
+MHIOT_Led* MHIOT_Led::m_pInstance = NULL;
 
 MHIOT_Led::MHIOT_Led()
 {
@@ -13,8 +14,11 @@ MHIOT_Led::MHIOT_Led()
 
 MHIOT_Led* MHIOT_Led::getInstance()
 {
-    if (!m_pInstance)
-        m_pInstance = new MHIOT_Led;
+    if (!instanceFlag)
+    {
+        m_pInstance = new MHIOT_Led();
+        instanceFlag = true;
+    }
 
     return m_pInstance;
 }

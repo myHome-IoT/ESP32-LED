@@ -5,6 +5,7 @@
 #include <ESPAsyncWebServer.h>
 #include "led/MHIOT_Led.h"
 #include "storage/MHIOT_NVS.h"
+#include "config/MHIOT_Config.h"
 
 namespace myHomeIoT
 {

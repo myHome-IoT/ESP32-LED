@@ -11,9 +11,10 @@ namespace myHomeIoT
         class MHIOT_Led
         {
         private:
-            static MHIOT_Led* m_pInstance;
+            static bool instanceFlag;
+            static MHIOT_Led *m_pInstance;
             MHIOT_Led();
-            MHIOT_Led(MHIOT_Led const&) {};
+            // MHIOT_Led(MHIOT_Led const&) {};
             // MHIOT_Led& operator=(MHIOT_Led const&){};
 
             float R{0};
@@ -22,7 +23,8 @@ namespace myHomeIoT
             uint8_t g{0};
             uint8_t b{0};
         public:
-            static MHIOT_Led* getInstance();
+            ~MHIOT_Led();
+            static MHIOT_Led *getInstance();
 
             uint8_t getWhite();
             void setWhite(uint8_t white);
